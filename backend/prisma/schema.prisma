@@ -1,0 +1,25 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+model Plataforma {
+  id          Int          @id @default(autoincrement())
+  nombre      String       @unique
+  fabricante  String
+  lanzamiento Int?         // Opcional
+  videojuegos Videojuego[] // Relación 1 a N
+}
+
+model Videojuego {
+  id           Int        @id @default(autoincrement())
+  titulo       String
+  genero       String
+  terminado    Boolean    @default(false)
+  creadoEn     DateTime   @default(now())
+  plataformaId Int
+  plataforma   Plataforma @relation(fields: [plataformaId], references: [id])
+}
