@@ -92,6 +92,7 @@ function App() {
   return (
     <main style={{ padding: '20px', fontFamily: 'sans-serif' }}>
       <h1>Mis Videojuegos</h1>
+      <p>Catálogo conectado en producción (Render)</p>
 
       <div style={{ marginBottom: '20px' }}>
         <label>Contraseña (API Key): </label>
